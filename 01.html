@@ -22,18 +22,18 @@
 
         return (
             <div className="movie">
+                <img width="200" src={photo} alt={'Photo' + name}/>
                 <h1>{name}</h1>
                 <p>{year}</p>
-                <img src={photo} alt={'Photo' + name}/>
             </div>
         )
     };
 
     const movies = (
         <div>
-            <Movie name="Knives Out" year={2019} photo={"https://www.amazon.com/clp/B081KPWLPR"} />
-            <Movie name="Inception" year={2010} photo={"https://www.amazon.com/Inception-DVD/dp/B00503EHGK"} />
-            <Movie name="Interstellar" year={2014} photo={"https://www.amazon.com/Interstellar-Blu-ray-DVD-Combo-Pack/dp/B00SI7GCJK"} />
+            <Movie name="Knives Out" year={2019} photo={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREdXchvUBuS8MwsjVPXeuWMmStFy22bPSkVfY11Bz4RhgnzRoZBV6-YNQ&s=10"} />
+            <Movie name="Inception" year={2010} photo={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrrFOFA31IxsW8YTci1RxsdapEdUHace1q7tLb43EE0w&s=10"} />
+            <Movie name="Interstellar" year={2014} photo={"https://m.media-amazon.com/images/M/MV5BYzdjMDAxZGItMjI2My00ODA1LTlkNzItOWFjMDU5ZDJlYWY3XkEyXkFqcGc@._V1_.jpg"} />
         </div>
     );
 
