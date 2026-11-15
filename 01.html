@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+
+<div id="app"></div>
+
+<script type="text/babel">
+    const container = document.getElementById('app');
+
+    const Movie = (props) => {
+        const {name, year, photo} = props;
+
+        return (
+            <div className="movie">
+                <h1>{name}</h1>
+                <p>{year}</p>
+                <img src={photo} alt={'Photo' + name}/>
+            </div>
+        )
+    };
+
+    const movies = (
+        <div>
+            <Movie name="Knives Out" year={2019} photo={"https://www.amazon.com/clp/B081KPWLPR"} />
+            <Movie name="Inception" year={2010} photo={"https://www.amazon.com/Inception-DVD/dp/B00503EHGK"} />
+            <Movie name="Interstellar" year={2014} photo={"https://www.amazon.com/Interstellar-Blu-ray-DVD-Combo-Pack/dp/B00SI7GCJK"} />
+        </div>
+    );
+
+    ReactDOM.createRoot(container).render(movies);
+</script>
+</body>
+</html>
