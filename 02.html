@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+<div id="app"></div>
+
+<script type="text/babel">
+    const container = document.getElementById('app');
+    const Header = () => {
+        return (
+            <header className="header">
+                <h1>Blah Blah Blog</h1>
+                <p>Books, jazz & occasional nonsense.</p>
+            </header>
+        );
+    };
+
+    const Sidebar = () => {
+        return (
+            <nav className="nav">
+                <p>Menu</p>
+                <ul>
+                    <li><a href="#">Literature</a></li>
+                    <li><a href="#">Music</a></li>
+                    <li><a href="#">History</a></li>
+                    <li><a href="#">Mind & Ideas</a></li>
+                </ul>
+            </nav>
+        );
+    };
+
+    const Content = () => {
+
+        return (
+            <div className="content">
+                <h2>Welcome to my little corner!</h2>
+                <p>A collection of things I like, things I find interesting, and things I probably think about too
+                    much.</p>
+
+                {cards}
+            </div>
+        );
+    };
+
+    const Card = (props) => {
+        const {name, comment, photo} = props;
+
+        return (
+            <div className="card">
+                <img src={photo} alt={name} />
+                <h3>{name}</h3>
+                <p>{comment}</p>
+            </div>
+        );
+    };
+
+    const cards = (
+        <div>
+            <Card name="Literature" comment="Dead authors, dramatic people & suspicious murders." photo={"https://i.pinimg.com/736x/2a/69/db/2a69db236652e6028cdb1a2162d06f36.jpg"} />
+            <Card name="Music" comment="Jazz, R&B & songs for staring dramatically out of windows." photo={"https://i.pinimg.com/1200x/63/bd/c6/63bdc665ad543d5d801d957af7366788.jpg"} />
+            <Card name="History" comment="Historical gossip, but everyone involved is dead." photo={"https://i.pinimg.com/736x/81/6c/b9/816cb9df936952f0ad7a56fd0f51cf41.jpg"} />
+            <Card name="Mind & Ideas" comment="Overthinking, but make it academic." photo={"https://i.pinimg.com/736x/bb/ef/6d/bbef6d9ec1c973d5db7974caa1b212bb.jpg"} />
+        </div>
+    );
+
+
+    const Footer = () => {
+        return (
+            <footer className="footer">
+                <p>© 2026 Blah Blah Blog. All rights reserved.</p>
+            </footer>
+        );
+    };
+
+    const Page = () => {
+        return (
+            <div>
+                <Header />
+                <Sidebar />
+                <Content />
+                <Footer />
+            </div>
+        );
+    };
+
+
+    ReactDOM.createRoot(container).render(<Page />);
+</script>
+</body>
+</html>
