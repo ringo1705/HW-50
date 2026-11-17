@@ -5,6 +5,136 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .page {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            grid-template-rows: auto 1fr auto;
+            grid-template-areas:
+        "header header"
+        "nav content"
+        "footer footer";
+            column-gap: 55px;
+            row-gap: 15px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            width: 100%;
+            background-color: #faed03;
+            padding: 10px 0;
+            border-radius: 10px;
+            grid-area: header;
+        }
+
+        .header h1 {
+            padding-left: 20px;
+        }
+
+        .header p {
+            padding-left: 20px;
+        }
+
+        .nav {
+            width: 220px;
+            background-color: #128cc3;
+            border-radius: 10px;
+            padding: 20px;
+            grid-area: nav;
+        }
+
+        .nav p {
+            margin: 0 0 20px;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav li {
+            margin-bottom: 20px;
+        }
+
+        .nav a {
+            color: black;
+            text-decoration: none;
+        }
+
+        .nav a:hover {
+            text-decoration: underline;
+        }
+
+        .content {
+            min-width: 0;
+            background-color: #d13a1e;
+            border-radius: 10px;
+            padding: 25px;
+            grid-area: content;
+        }
+
+        .content h2 {
+            margin: 0 0 12px;
+            font-size: 28px;
+        }
+
+        .content p {
+            margin: 0 0 25px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background-color: #f1836f;
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px solid #5e1e13;
+        }
+
+        .card img {
+            display: block;
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .card h3 {
+            margin: 15px 0 10px;
+            font-size: 19px;
+        }
+
+        .card p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .footer {
+            background-color: #75635b;
+            color: #fff8ef;
+            text-align: center;
+            padding: 20px;
+            grid-area: footer;
+        }
+
+        .footer p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+    </style>
     <title>Document</title>
     <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
@@ -56,7 +186,7 @@
 
         return (
             <div className="card">
-                <img src={photo} alt={name} />
+                <img src={photo} alt={name}/>
                 <h3>{name}</h3>
                 <p>{comment}</p>
             </div>
@@ -64,11 +194,15 @@
     };
 
     const cards = (
-        <div>
-            <Card name="Literature" comment="Dead authors, dramatic people & suspicious murders." photo={"https://i.pinimg.com/736x/2a/69/db/2a69db236652e6028cdb1a2162d06f36.jpg"} />
-            <Card name="Music" comment="Jazz, R&B & songs for staring dramatically out of windows." photo={"https://i.pinimg.com/1200x/63/bd/c6/63bdc665ad543d5d801d957af7366788.jpg"} />
-            <Card name="History" comment="Historical gossip, but everyone involved is dead." photo={"https://i.pinimg.com/736x/81/6c/b9/816cb9df936952f0ad7a56fd0f51cf41.jpg"} />
-            <Card name="Mind & Ideas" comment="Overthinking, but make it academic." photo={"https://i.pinimg.com/736x/bb/ef/6d/bbef6d9ec1c973d5db7974caa1b212bb.jpg"} />
+        <div className="cards">
+            <Card name="Literature" comment="Dead authors, dramatic people & suspicious murders."
+                  photo={"https://i.pinimg.com/1200x/de/58/91/de5891aa979ab02238f15100d186122d.jpg"}/>
+            <Card name="Music" comment="Jazz, R&B & songs for staring dramatically out of windows."
+                  photo={"https://i.pinimg.com/736x/57/b4/57/57b45797885bb07861200eddcec9c51a.jpg"}/>
+            <Card name="History" comment="Historical gossip, but everyone involved is dead."
+                  photo={"https://i.pinimg.com/736x/81/6c/b9/816cb9df936952f0ad7a56fd0f51cf41.jpg"}/>
+            <Card name="Mind & Ideas" comment="Overthinking, but make it academic."
+                  photo={"https://i.pinimg.com/1200x/7c/02/d5/7c02d5789e035ea3bfb6006742a4051f.jpg"}/>
         </div>
     );
 
@@ -83,17 +217,17 @@
 
     const Page = () => {
         return (
-            <div>
-                <Header />
-                <Sidebar />
-                <Content />
-                <Footer />
+            <div className="page">
+                <Header/>
+                <Sidebar/>
+                <Content/>
+                <Footer/>
             </div>
         );
     };
 
 
-    ReactDOM.createRoot(container).render(<Page />);
+    ReactDOM.createRoot(container).render(<Page/>);
 </script>
 </body>
 </html>
